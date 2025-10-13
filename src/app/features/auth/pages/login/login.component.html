@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h2 class="h4 mb-3">Sign in</h2>
+        <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input
+              appAutoFocus
+              id="email"
+              class="form-control"
+              type="email"
+              formControlName="email"
+              aria-describedby="emailHelp"
+            />
+            <div id="emailHelp" class="form-text">Use your email to start.</div>
+            @if(validationEmail){
+            <div class="text-danger small">Valid email is required</div>
+            }
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input
+              appAutoFocus
+              id="password"
+              class="form-control"
+              type="password"
+              formControlName="password"
+              aria-describedby="passwordHelp"
+            />
+            <div id="password" class="form-text">
+              Use your password to start.
+            </div>
+            @if(validationPassword){
+            <div class="text-danger small">Valid password is required</div>
+            }
+          </div>
+          <button class="btn btn-primary" [disabled]="form.invalid">
+            Continue
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
