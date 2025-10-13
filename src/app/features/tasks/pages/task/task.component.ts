@@ -7,15 +7,16 @@ import {
   Validators,
 } from '@angular/forms';
 import { map, Observable, startWith, Subject, switchMap } from 'rxjs';
+import Swal from 'sweetalert2';
 import { Task } from '../../../../core/interfaces/task.interface';
 import { AuthService } from '../../../../core/services/auth.service';
 import { TaskService } from '../../../../core/services/task.service';
-import Swal from 'sweetalert2';
+import { TaskCardComponent } from '../../components/task-card/task-card.component';
 
 @Component({
   selector: 'app-task',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [CommonModule, ReactiveFormsModule, TaskCardComponent],
   templateUrl: './task.component.html',
   styleUrl: './task.component.scss',
 })
