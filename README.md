@@ -1,27 +1,40 @@
-# Frontend
+# Project Run Guide
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+Angular application generated with Angular CLI 17.3.17.
 
-## Development server
+## Prerequisites
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Node.js 18 LTS or newer.
+- npm 9 or newer (bundled with Node.js).
+- Angular CLI installed globally: `npm install -g @angular/cli`.
+- Backend available at `http://localhost:5001/api` for development, or the configured URL for production.
 
-## Code scaffolding
+## Initial Setup
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Install dependencies: `npm install`.
+2. Confirm the environment files point to the correct URLs:
+   - Development: `src/environments/environment.ts`.
+   - Production: `src/environments/environment.prod.ts`.
 
-## Build
+## Run in Development Mode
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Start the dev server: `npm start` (equivalent to `ng serve`).
+- The application is available at `http://localhost:4200/`.
+- The server reloads automatically when it detects file changes.
 
-## Running unit tests
+## Build for Production
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Run `npm run build`.
+- Build artifacts are generated in `dist/frontend/browser`.
+- Serve that folder with any static server to review the compiled version.
 
-## Running end-to-end tests
+## Deploy to Firebase Hosting
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. Create a production build: `npm run build -- --configuration production`.
+2. Ensure the Firebase CLI is installed (`npm install -g firebase-tools`) and you are logged in (`firebase login`).
+3. Deploy: `firebase deploy --only hosting`.
 
-## Further help
+## Common Issues
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Port 4200 in use: run `ng serve --port 4300`.
+- API errors: verify the backend is running and `apiBaseUrl` points to the correct address.
