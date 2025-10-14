@@ -1,11 +1,8 @@
 {
   "hosting": {
-    "public": "y",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
+    "site": "todo-1a513",
+    "public": "dist/frontend/browser",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
         "source": "**",
